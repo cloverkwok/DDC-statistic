@@ -21,8 +21,8 @@ ddc_result = under_100.rename(columns={
     'gap_to_100': 'gap_to_100'
 }).to_dict(orient='records')
 
-# ── 2. Abstract/description 长度统计 ─────────────────────────────────
-desc_lengths = df['description'].astype(str).str.len()
+# ── 2. Abstract/description 长度统计（单词数）─────────────────────────
+desc_lengths = df['description'].astype(str).str.split().str.len()
 
 abstract_stats = {
     'max': int(desc_lengths.max()),
@@ -100,10 +100,10 @@ with open(output_path, 'w', encoding='utf-8') as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
 
 print(f"完成！结果已保存至: {output_path}")
-print(f"\n── Abstract 统计 ──")
-print(f"  最长: {abstract_stats['max']} 字符")
-print(f"  最短: {abstract_stats['min']} 字符")
-print(f"  平均: {abstract_stats['mean']} 字符")
+print(f"\n── Abstract 统计（单词数）──")
+print(f"  最多: {abstract_stats['max']} 词")
+print(f"  最少: {abstract_stats['min']} 词")
+print(f"  平均: {abstract_stats['mean']} 词")
 print(f"\n── DDC 统计 ──")
 print(f"  001-999 中完全缺失的分类: {len(missing_ddc)} 个")
 print(f"  缺失列表: {missing_ddc[:20]}{'...' if len(missing_ddc) > 20 else ''}")

@@ -95,12 +95,20 @@ def _build_underfilled_table(underfilled: list[dict[str, Any]]) -> str:
 def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str:
     lines = [f"| DDC Range | DDC < {check_number} Count |", "| --- | --- |"]
     if groups:
-        for item in groups:
-            ddc_range = str(item.get("ddc_range", ""))
-            under_check_number_count = _safe_int(item.get("under_check_number_count", 0), 0)
-            lines.append(f"| {ddc_range} | {under_check_number_count} |")
+        non_zero_groups = [
+            item
+            for item in groups
+            if _safe_int(item.get("under_check_number_count", 0), 0) > 0
+        ]
+        if non_zero_groups:
+            for item in non_zero_groups:
+                ddc_range = str(item.get("ddc_range", ""))
+                under_check_number_count = _safe_int(item.get("under_check_number_count", 0), 0)
+                lines.append(f"| {ddc_range} | {under_check_number_count} |")
+        else:
+            lines.append("| None | - |")
     else:
-        lines.append("| None | 0 |")
+        lines.append("| None | - |")
     return "\n".join(lines)
 
 
@@ -157,10 +165,10 @@ def build_statistics_block(stats: dict[str, Any]) -> str:
         f"DDC that already having {check_number} samples will not show details of the distribution.\n\n"
         f"**Vaild samples number in total: {valid_sample_total}**\n\n"
         f"DDC number that not satisfy the requirement of {check_number} samples have: {ddc_under_100_count} \n\n"
-        f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
-        f"{table}\n\n"
         f"**DDC grouped by 10 (count of DDC < {check_number}):**\n"
         f"{grouped_table}\n\n"
+        f"**DDC number that not satisfy the requirement of {check_number} samples:**\n"
+        f"{table}\n\n"
         "### DDC data quality\n\n"
         f"**Minimal length of description: {min_description_length}**\n\n"
         f"**Maximal length of description: {max_description_length}**\n\n"
