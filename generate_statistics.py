@@ -76,10 +76,15 @@ ddc_int_counts = (
 ddc_group_by_10 = []
 for i in range(0, 1000, 10):
     codes = [str(j).zfill(3) for j in range(i, i + 10)]
-    under_check_number_count = int((ddc_int_counts.loc[codes] < CHECK_NUMBER).sum())
+    under_check_number_mask = ddc_int_counts.loc[codes] < CHECK_NUMBER
+    under_check_number_count = int(under_check_number_mask.sum())
+    under_check_number_codes = [
+        code for code in codes if bool(under_check_number_mask.loc[code])
+    ]
     ddc_group_by_10.append({
         'ddc_range': f"{codes[0]}-{codes[-1]}",
-        'under_check_number_count': under_check_number_count
+        'under_check_number_count': under_check_number_count,
+        'under_check_number_ddc_list': under_check_number_codes
     })
 
 output = {

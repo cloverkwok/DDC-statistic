@@ -26,6 +26,27 @@ def _safe_int(value: Any, default: int = 0) -> int:
         return default
 
 
+def _normalize_ddc_list(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+
+    normalized: list[str] = []
+    for item in value:
+        if item is None:
+            continue
+
+        ddc = str(item).strip()
+        if not ddc:
+            continue
+
+        if ddc.isdigit():
+            ddc = ddc.zfill(3)
+
+        normalized.append(ddc)
+
+    return normalized
+
+
 def _normalize_underfilled_items(items: Any) -> list[dict[str, Any]]:
     if not isinstance(items, list):
         return []
@@ -72,9 +93,13 @@ def _normalize_grouped_items(items: Any) -> list[dict[str, Any]]:
             item.get("under_check_number_count", item.get("total_records", item.get("count", 0))),
             0,
         )
+        ddc_list = _normalize_ddc_list(
+            item.get("under_check_number_ddc_list", item.get("ddc_list", []))
+        )
         normalized.append({
             "ddc_range": ddc_range,
             "under_check_number_count": under_check_number_count,
+            "ddc_list": ddc_list,
         })
 
     return normalized
@@ -93,7 +118,10 @@ def _build_underfilled_table(underfilled: list[dict[str, Any]]) -> str:
 
 
 def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str:
-    lines = [f"| DDC Range | DDC < {check_number} Count |", "| --- | --- |"]
+    lines = [
+        f"| DDC Range | DDC < {check_number} Count | DDC List |",
+        "| --- | --- | --- |",
+    ]
     if groups:
         non_zero_groups = [
             item
@@ -104,11 +132,15 @@ def _build_grouped_table(groups: list[dict[str, Any]], check_number: int) -> str
             for item in non_zero_groups:
                 ddc_range = str(item.get("ddc_range", ""))
                 under_check_number_count = _safe_int(item.get("under_check_number_count", 0), 0)
-                lines.append(f"| {ddc_range} | {under_check_number_count} |")
+                ddc_list = item.get("ddc_list", [])
+                ddc_list_display = ", ".join(ddc_list) if ddc_list else "-"
+                lines.append(
+                    f"| {ddc_range} | {under_check_number_count} | {ddc_list_display} |"
+                )
         else:
-            lines.append("| None | - |")
+            lines.append("| None | - | - |")
     else:
-        lines.append("| None | - |")
+        lines.append("| None | - | - |")
     return "\n".join(lines)
 
 
