@@ -11,14 +11,13 @@ DDC that already having 10 samples will not show details of the distribution.
 
 **Vaild samples number in total: 286946**
 
-DDC number that not satisfy the requirement of 10 samples have: 90 
+DDC number that not satisfy the requirement of 10 samples have: 77 
 
 **DDC grouped by 10 (count of DDC < 10):**
 | DDC Range | DDC < 10 Count | DDC List |
 | --- | --- | --- |
-| 000-009 | 1 | 000 |
+| 000-007 | 1 | 000 |
 | 030-039 | 2 | 037, 038 |
-| 040-049 | 7 | 041, 043, 044, 045, 046, 047, 048 |
 | 050-059 | 5 | 055, 056, 057, 058, 059 |
 | 060-069 | 5 | 060, 064, 065, 066, 067 |
 | 070-079 | 4 | 073, 075, 076, 078 |
@@ -29,12 +28,10 @@ DDC number that not satisfy the requirement of 10 samples have: 90
 | 170-179 | 3 | 173, 176, 178 |
 | 180-189 | 6 | 180, 182, 183, 185, 186, 187 |
 | 190-199 | 4 | 195, 196, 197, 198 |
-| 430-439 | 2 | 434, 436 |
-| 440-449 | 2 | 444, 446 |
-| 450-459 | 3 | 454, 455, 456 |
-| 460-469 | 4 | 461, 464, 466, 469 |
-| 470-479 | 3 | 474, 476, 478 |
-| 480-489 | 4 | 482, 484, 486, 488 |
+| 450-459 | 1 | 455 |
+| 460-469 | 2 | 461, 469 |
+| 470-479 | 1 | 478 |
+| 480-489 | 2 | 482, 488 |
 | 490-499 | 2 | 490, 496 |
 | 680-689 | 1 | 689 |
 | 690-699 | 1 | 699 |
@@ -48,19 +45,6 @@ DDC number that not satisfy the requirement of 10 samples have: 90
 **DDC number that not satisfy the requirement of 10 samples:**
 | DDC | Sample Number |
 | --- | --- |
-| 048 | 0 |
-| 434 | 0 |
-| 436 | 0 |
-| 444 | 0 |
-| 446 | 0 |
-| 454 | 0 |
-| 456 | 0 |
-| 464 | 0 |
-| 466 | 0 |
-| 474 | 0 |
-| 476 | 0 |
-| 484 | 0 |
-| 486 | 0 |
 | 046 | 1 |
 | 066 | 1 |
 | 067 | 1 |

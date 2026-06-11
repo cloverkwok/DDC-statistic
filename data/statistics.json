@@ -10,73 +10,8 @@
     "total_ddc_classes": 986,
     "ddc_over_check_number_count": 909,
     "ddc_over_check_number_total_records": 286648,
-    "ddc_under_check_number_count": 90,
+    "ddc_under_check_number_count": 77,
     "details": [
-      {
-        "ddc": "048",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "434",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "436",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "444",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "446",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "454",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "456",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "464",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "466",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "474",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "476",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "484",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
-      {
-        "ddc": "486",
-        "current_count": 0,
-        "gap_to_check_number": 10
-      },
       {
         "ddc": 46,
         "current_count": 1,
@@ -466,7 +401,7 @@
   },
   "ddc_group_by_10": [
     {
-      "ddc_range": "000-009",
+      "ddc_range": "000-007",
       "under_check_number_count": 1,
       "under_check_number_ddc_list": [
         "000"
@@ -488,19 +423,6 @@
       "under_check_number_ddc_list": [
         "037",
         "038"
-      ]
-    },
-    {
-      "ddc_range": "040-049",
-      "under_check_number_count": 7,
-      "under_check_number_ddc_list": [
-        "041",
-        "043",
-        "044",
-        "045",
-        "046",
-        "047",
-        "048"
       ]
     },
     {
@@ -751,55 +673,41 @@
     },
     {
       "ddc_range": "430-439",
-      "under_check_number_count": 2,
-      "under_check_number_ddc_list": [
-        "434",
-        "436"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "440-449",
-      "under_check_number_count": 2,
-      "under_check_number_ddc_list": [
-        "444",
-        "446"
-      ]
+      "under_check_number_count": 0,
+      "under_check_number_ddc_list": []
     },
     {
       "ddc_range": "450-459",
-      "under_check_number_count": 3,
+      "under_check_number_count": 1,
       "under_check_number_ddc_list": [
-        "454",
-        "455",
-        "456"
+        "455"
       ]
     },
     {
       "ddc_range": "460-469",
-      "under_check_number_count": 4,
+      "under_check_number_count": 2,
       "under_check_number_ddc_list": [
         "461",
-        "464",
-        "466",
         "469"
       ]
     },
     {
       "ddc_range": "470-479",
-      "under_check_number_count": 3,
+      "under_check_number_count": 1,
       "under_check_number_ddc_list": [
-        "474",
-        "476",
         "478"
       ]
     },
     {
       "ddc_range": "480-489",
-      "under_check_number_count": 4,
+      "under_check_number_count": 2,
       "under_check_number_ddc_list": [
         "482",
-        "484",
-        "486",
         "488"
       ]
     },
