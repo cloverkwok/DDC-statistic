@@ -87,12 +87,12 @@ jobs:
 
           git remote set-url origin "https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}.git"
 
-          if [ ! -f data/merged_dedup_all3cols.csv ]; then
+          if [ ! -f data/merged_dedup_all3cols.xlsx ]; then
             echo "Output file not found, skipping commit."
             exit 0
           fi
 
-          git add data/merged_dedup_all3cols.csv
+          git add data/merged_dedup_all3cols.xlsx
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
