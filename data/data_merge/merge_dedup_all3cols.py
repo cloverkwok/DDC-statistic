@@ -273,8 +273,8 @@ def main():
     # 输出到 data 目录（当前脚本目录的上一级）
     output_dir = os.path.abspath(os.path.join(BASE_DIR, '..'))
     os.makedirs(output_dir, exist_ok=True)
-    output = os.path.join(output_dir, 'merged_dedup_all3cols.csv')
-    merged.to_csv(output, index=False, encoding='utf-8-sig')
+    output = os.path.join(output_dir, 'merged_dedup_all3cols.xlsx')
+    merged.to_excel(output, index=False, engine='xlsxwriter')
     print(f"\n完成！结果已保存至: {output}")
 
 
