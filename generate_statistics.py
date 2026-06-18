@@ -3,7 +3,7 @@ import json
 import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.xlsx')
+INPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'merged_dedup_all3cols.csv')
 CHECK_NUMBER = 10
 
 # 未定义的 DDC 分类编号列表（字符串形式，如 '000', '099'）。
@@ -36,7 +36,7 @@ UNDEFINED_DDC = [
 ]
 
 print(f"读取: {INPUT_FILE} ...")
-df = pd.read_excel(INPUT_FILE)
+df = pd.read_csv(INPUT_FILE, encoding='utf-8-sig')
 
 # ── 0. 过滤未定义 DDC 分类 ───────────────────────────────────────────
 if UNDEFINED_DDC:
